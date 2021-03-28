@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge'>
+<title>Custom Html Select</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css" integrity="sha256-2H3fkXt6FEmrReK448mDVGKb3WW2ZZw35gI7vqHOE4Y=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rainbow/1.2.0/themes/github.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/rainbow/1.2.0/js/rainbow.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/rainbow/1.2.0/js/language/html.min.js"></script>
+<style>
+/** demo styles */
+* {
+	box-sizing: border-box;
+}
+body {
+	max-width: 900px;
+	font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+	margin: 0 auto;
+	margin-top: 3rem;
+}
+select {
+	padding: 5px 10px;
+	border: 1px solid #ccc;
+	border-radius: 2px;
+	position: relative;
+	outline: 0;
+}
+p {
+	font-size: 18px;
+	background-color: #eee;
+	padding: 5px 10px;
+	border-radius: 3px;
+}
+hr {
+	border: 1px solid #eee;
+	margin: 3rem 0;
+}
+p span {
+	font-size: 13px;
+	background-color: #1e90ff;
+	color: #fff;
+	border-radius: 0.375rem;
+	padding: 3px 6px;
+}
+
+pre {
+	overflow-x: scroll;
+	margin: 0;
+}
+
+button {
+	cursor: pointer;
+	padding: .4rem .9rem;
+	border: 1px solid #1e90ff;
+	background: #1e90ff;
+	color: white;
+	border-radius: 3px;
+}
+
+button:active {
+	transform: translateY(2px);
+}
+
+.b {
+	margin: 0 auto;
+	border: 5px dashed #ccc;
+}
+
+.b button {
+	display: block;
+	margin: 1rem 0;
+	margin: 1rem auto;
+}
+
+.demo {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.cl:nth-child(1) {
+	width: 30%;
+}
+.cl:nth-child(2) {
+	margin: 0 auto;
+	width: 60%;
+}
+
+@media only screen and (min-width: 1920px) {
+	.b {
+		top: 5rem;
+		left: 5rem;
+		position: fixed;
+		width: 300px;
+	}
+}
+
+@media only screen and (max-width: 900px) {
+	.b {
+		position: relative;
+		margin: 0 auto;
+		top: 0!important;
+		left: 0!important;
+	}
+	.cl {
+		width: 100%!important;
+		margin: 1rem!important;
+	}
+	.chs, select {
+		width: 100%!important;
+	}
+}
+
+/** demo styles */
+
+.chs, select {
+	width: 300px;
+	/*margin: 0 auto;*/
+}
+
+.search_box::placeholder {
+	font-family:"Font Awesome 5 Free", arial;
+	font-style:normal;
+	font-weight:900;
+}
+
+.chs img {
+	width: 24px;
+	height: 24px;
+	vertical-align: middle;
+}
+
+</style>
+</head>
+<body>
+
+<div class="b">
+	<button id="demo">Insert chselect.js</button>
+	<button onclick="location.reload()">Remove chselect.js</button>
+</div>
+
+<p>CustomHtmlSelect - The most basic example</p>
+<div class="demo">
+	<div class="cl">
+		<select name="demo1">
+			<option>Item 1</option>
+			<option>Item 2</option>
+			<option>Item 3</option>
+			<option>Item 4</option>
+			<option>Item 5</option>
+		</select>
+	</div>
+
+	<div class="cl">
+<pre><code data-language="html"><select name="demo1">
+	<option>Item 1</option>
+	<option>Item 2</option>
+	<option>Item 3</option>
+	<option>Item 4</option>
+	<option>Item 5</option>
+</select></code></pre>
+	</div>
+</div>
+
+<hr>
+
+<p>CustomHtmlSelect - Also you can use the attr value</p>
+<div class="demo">
+	<div class="cl">
+		<select name="demo2">
+			<option value="1">Item 1</option>
+			<option value="2">Item 2</option>
+			<option value="3">Item 3</option>
+			<option value="4">Item 4</option>
+			<option value="5">Item 5</option>
+		</select>
+	</div>
+
+	<div class="cl">
+<pre><code data-language="html"><select name="demo2">
+	<option value="1">Item 1</option>
+	<option value="2">Item 2</option>
+	<option value="3">Item 3</option>
+	<option value="4">Item 4</option>
+	<option value="5">Item 5</option>
+</select></code></pre>
+	</div>
+</div>
+
+<hr>
+
+<p>CustomHtmlSelect - You can use the attr <span>disabled</span> to set the select name</p>
+<div class="demo">
+	<div class="cl">
+		<select name="demo3">
+			<option disabled>-- Hello 👋 --</option>
+			<option value="1">Item 1</option>
+			<option value="2">Item 2</option>
+			<option value="3">Item 3</option>
+			<option value="4">Item 4</option>
+			<option value="5">Item 5</option>
+		</select>
+	</div>
+
+	<div class="cl">
+<pre><code data-language="html"><select name="demo3">
+	<option disabled>-- Hello 👋 --</option>
+	<option value="1">Item 1</option>
+	<option value="2">Item 2</option>
+	<option value="3">Item 3</option>
+	<option value="4">Item 4</option>
+	<option value="5">Item 5</option>
+</select></code></pre>
+	</div>
+</div>
+
+<hr>
+
+<p>CustomHtmlSelect - You can use the attr <span>selected</span> to set a default item, this item have prefrerence to <span>disabled</span> attr</p>
+<div class="demo">
+	<div class="cl">
+		<select name="demo4">
+			<option disabled>-- Why.. 😢 --</option>
+			<option value="1">Item 1</option>
+			<option value="2">Item 2</option>
+			<option value="3" selected>Item 3</option>
+			<option value="4">Item 4</option>
+			<option value="5">Item 5</option>
+		</select>
+	</div>
+
+	<div class="cl">
+<pre><code data-language="html"><select name="demo4">
+	<option disabled>-- Why.. 😢 --</option>
+	<option value="1">Item 1</option>
+	<option value="2">Item 2</option>
+	<option value="3" selected>Item 3</option>
+	<option value="4">Item 4</option>
+	<option value="5">Item 5</option>
+</select></code></pre>
+	</div>
+</div>
+
+<hr>
+
+<p>CustomHtmlSelect - You can set the custom options in the <span>data-chsoptions=""</span></p>
+<div class="demo">
+	<div class="cl">
+		<select name="demo5" data-chsoptions="grid-3 center">
+			<option>Item 1</option>
+			<option>Item 2</option>
+			<option>Item 3</option>
+			<option>Item 4</option>
+			<option>Item 5</option>
+		</select>
+	</div>
+
+	<div class="cl">
+<pre><code data-language="html"><select name="demo5" data-chsoptions="grid-3 center">
+	<option>Item 1</option>
+	<option>Item 2</option>
+	<option>Item 3</option>
+	<option>Item 4</option>
+	<option>Item 5</option>
+</select></code></pre>
+	</div>
+</div>
+
+<hr>
+
+<p>CustomHtmlSelect - Example with images</p>
+<div class="demo">
+	<div class="cl">
+		<select name="demo6" data-chsoptions="grid search float">
+			<option disabled selected>-- Choose your language --</option>
+			<option value="1" data-chsimg="https://img.icons8.com/color/2x/great-britain-circular.png">English</option>
+			<option value="2" data-chsimg="https://img.icons8.com/color/2x/spain-circular.png">Spanish</option>
+			<option value="3" data-chsimg="https://img.icons8.com/color/2x/france-circular.png">French</option>
+			<option value="4" data-chsimg="https://img.icons8.com/color/2x/italy-circular.png">Italian</option>
+			<option value="5" data-chsimg="https://img.icons8.com/color/2x/germany-circular.png">German</option>
+			<option value="6" data-chsimg="https://img.icons8.com/color/2x/poland-circular.png">Poland</option>
+		</select>
+	</div>
+
+	<div class="cl">
+<pre><code data-language="html"><select name="demo6" data-chsoptions="grid search float">
+	<option disabled selected>-- Choose your language</option>
+	<option value="1" data-chsimg="https://img.icons8.com/color/2x/great-britain-circular.png">English</option>
+	<option value="2" data-chsimg="https://img.icons8.com/color/2x/spain-circular.png">Spanish</option>
+	<option value="3" data-chsimg="https://img.icons8.com/color/2x/france-circular.png">French</option>
+	<option value="4" data-chsimg="https://img.icons8.com/color/2x/italy-circular.png">Italian</option>
+	<option value="5" data-chsimg="https://img.icons8.com/color/2x/germany-circular.png">German</option>
+	<option value="6" data-chsimg="https://img.icons8.com/color/2x/poland-circular.png">Poland</option>
+</select>
+</code></pre>
+	</div>
+</div>
+
+<hr>
+
+<p>CustomHtmlSelect - Example with many items using <span>scroll</span> option</p>
+<div class="demo">
+	<div class="cl">
+		<select name="demo7" data-chsoptions="grid search scroll">
+			<option>Item 1</option>
+			<option>Item 2</option>
+			<option>Item 3</option>
+			<option>Item 4</option>
+			<option>Item 5</option>
+			<option>Item 6</option>
+			<option>Item 7</option>
+			<option>Item 8</option>
+			<option>Item 9</option>
+			<option>Item 10</option>
+			<option>Item 11</option>
+			<option>Item 12</option>
+			<option>Item 13</option>
+			<option>Item 14</option>
+			<option>Item 15</option>
+			<option>Item 16</option>
+			<option>Item 17</option>
+			<option>Item 18</option>
+			<option>Item 19</option>
+			<option>Item 20</option>
+			<option>Item 21</option>
+			<option>Item 22</option>
+			<option>Item 23</option>
+			<option>Item 24</option>
+			<option>Item 25</option>
+			<option>Item 26</option>
+			<option>Item 27</option>
+			<option>Item 28</option>
+			<option>Item 29</option>
+			<option>Item 30</option>
+			<option>Item 31</option>
+			<option>Item 32</option>
+			<option>Item 33</option>
+			<option>Item 34</option>
+			<option>Item 35</option>
+			<option>Item 36</option>
+			<option>Item 37</option>
+			<option>Item 38</option>
+			<option>Item 39</option>
+			<option>Item 40</option>
+			<option>Item 41</option>
+			<option>Item 42</option>
+			<option>Item 43</option>
+			<option>Item 44</option>
+			<option>Item 45</option>
+			<option>Item 46</option>
+			<option>Item 47</option>
+			<option>Item 48</option>
+			<option>Item 49</option>
+			<option>Item 50</option>
+		</select>
+	</div>
+
+	<div class="cl">
+<pre><code data-language="html"><select name="demo7" data-chsoptions="grid search scroll">
+	<option>Item 1</option>
+	<option>Item 2</option>
+	<option>Item 3</option>
+	...
+	<option>Item 49</option>
+	<option>Item 50</option>
+</select></code></pre>
+	</div>
+</div>
+
+<hr>
+
+<p>I have used <a href="https://github.com/ccampbell/rainbow/">Rainbow</a> to colorized the syntax</p>
+
+
+<link rel="stylesheet" type="text/css" href="src/chselect.min.css">
+<!--<script defer src="src/chselect.js"></script>-->
+
+<script>
+	var chs = {
+		/*selector: 	'select',
+		options: 	'grid search',
+		title:		'-- Selecciona uno 😎 --',*/
+		search: 	'&#xf002;'
+	};
+</script>
+
+
+<script>
+	document.getElementById("demo").addEventListener("click", function() {
+		if ( this.id === 'demo' ) {
+			var s = document.createElement("script");
+			s.src = 'src/chselect.js';
+			document.body.appendChild(s);
+			this.id = 'used';
+		}
+	});
+</script>
+
+
+</body>
+</html>
